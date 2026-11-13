@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101b2b">
+<title>USSS Academy — Законодательный тест</title>
+<style>
+:root{--bg:#0b1220;--panel:#121e30;--panel2:#18283e;--line:#2a3d56;--text:#eef4fb;--muted:#9fb0c5;--gold:#d7b56d;--gold2:#f0d99f;--green:#63c69b;--red:#f07c7c}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 50% -20%,#203653 0,transparent 55%),var(--bg);color:var(--text);font:16px/1.55 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+.wrap{width:min(920px,calc(100% - 32px));margin:0 auto;padding:34px 0 56px}
+header{text-align:center;padding:24px 12px 30px}.crest{width:62px;height:62px;border:1px solid #927c50;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;color:var(--gold2);font-size:27px;background:#1b2b40}
+.kicker{color:var(--gold);font-size:12px;letter-spacing:.2em;text-transform:uppercase;font-weight:700}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.12;margin:9px 0;color:#fff;letter-spacing:.02em}
+.subtitle{color:var(--muted);max-width:680px;margin:10px auto 0}
+.panel{background:linear-gradient(145deg,rgba(24,40,62,.98),rgba(16,29,46,.98));border:1px solid var(--line);border-radius:18px;padding:clamp(20px,4vw,34px);box-shadow:0 18px 50px #0005}
+.meta{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:20px 0 0}.pill{border:1px solid var(--line);color:#c4d1e0;border-radius:30px;padding:6px 12px;font-size:12px}
+.intro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:22px 0}.mini{background:#0e1929;border:1px solid var(--line);border-radius:12px;padding:13px}.mini b{display:block;color:var(--gold2);font-size:18px}.mini span{font-size:12px;color:var(--muted)}
+.notice{border-left:3px solid var(--gold);padding:10px 14px;background:#d7b56d12;color:#cbd7e5;border-radius:0 9px 9px 0;font-size:13px;margin:20px 0}
+button{border:0;border-radius:10px;padding:12px 19px;font-weight:700;font-size:15px;cursor:pointer;transition:.18s}
+button:focus-visible,input:focus-visible+label{outline:3px solid var(--gold);outline-offset:3px}
+.primary{background:var(--gold);color:#182235}.primary:hover{background:var(--gold2);transform:translateY(-1px)}
+.secondary{background:#24364d;color:var(--text);border:1px solid var(--line)}
+button:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.actions{display:flex;justify-content:space-between;gap:12px;margin-top:24px}
+.topline{display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:13px;margin-bottom:10px}
+.progress{height:6px;background:#0a1422;border-radius:8px;overflow:hidden;margin-bottom:26px}.bar{height:100%;width:0;background:linear-gradient(90deg,#b18c4d,var(--gold2));transition:width .25s}
+.qnum{color:var(--gold);font-size:12px;letter-spacing:.15em;text-transform:uppercase;font-weight:800}
+h2{font-size:clamp(20px,3vw,26px);line-height:1.3;margin:8px 0 16px}
+.type-note{color:var(--gold2);font-size:13px;margin:-7px 0 18px}
+.options{display:grid;gap:10px}
+.option{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--line);background:#0e1929;border-radius:12px;padding:14px;cursor:pointer;transition:.15s}
+.option:hover{border-color:#8b7955;background:#17263a}
+.option input{accent-color:var(--gold);margin:4px 0 0;flex:0 0 auto;width:17px;height:17px}
+.option span{flex:1}.option.selected{border-color:var(--gold);background:#d7b56d12}
+.feedback{display:none;margin-top:18px;padding:14px;border-radius:12px;font-size:14px}
+.feedback.good{display:block;background:#63c69b14;border:1px solid #63c69b66;color:#bcebd6}
+.feedback.bad{display:block;background:#f07c7c12;border:1px solid #f07c7c66;color:#ffd0d0}
+.result{text-align:center}.score{font-size:58px;line-height:1.1;font-weight:800;color:var(--gold2);margin:18px 0 6px}
+.result h2{margin:8px 0}.result p{color:var(--muted)}
+.review{margin-top:24px;text-align:left;display:grid;gap:10px}.review-item{background:#0e1929;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:14px}.review-item strong{display:block;margin-bottom:4px}.ok{color:var(--green)}.no{color:var(--red)}
+footer{text-align:center;color:#8294aa;font-size:12px;padding:22px 8px 0}a{color:var(--gold2)}
+.hidden{display:none!important}
+.password-box{max-width:520px;margin:0 auto}.password-row{display:flex;gap:10px;margin-top:18px}.password-row input{min-width:0;flex:1;background:#0e1929;border:1px solid var(--line);border-radius:10px;padding:12px 14px;color:var(--text);font:inherit}.password-error{color:var(--red);font-size:13px;margin-top:10px;min-height:20px}
+@media(max-width:600px){.intro-grid{grid-template-columns:1fr}.actions{flex-direction:column-reverse}.actions button{width:100%}.panel{padding:20px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="crest">★</div>
+  <div class="kicker">United States Secret Service</div>
+  <h1>USSS ACADEMY</h1>
+  <p class="subtitle">Законодательное тестирование для сотрудников USSS 4–8 рангов. Проверьте знание Уголовно-административного кодекса, Этического кодекса и Закона о USSS.</p>
+  <div class="meta"><span class="pill">4–8 ранг</span><span class="pill">15 вопросов</span><span class="pill">1 или несколько ответов</span><span class="pill">Законодательная база</span></div>
+</header>
+
+<section class="panel password-box" id="passwordGate">
+  <div class="kicker">Доступ ограничен</div>
+  <h2>Введите пароль для начала тестирования</h2>
+  <p style="color:var(--muted)">Введите выданный вам пароль, чтобы открыть тестирование.</p>
+  <form id="passwordForm">
+    <div class="password-row">
+      <input id="sitePassword" type="password" placeholder="Введите пароль" autocomplete="current-password" required>
+      <button class="primary" type="submit">Войти</button>
+    </div>
+    <div class="password-error" id="passwordError" role="alert"></div>
+  </form>
+</section>
+
+<section class="panel hidden" id="welcome">
+  <div class="kicker">Законодательная аттестация</div>
+  <h2>Перед началом тестирования</h2>
+  <p>Тест предназначен для сотрудников 4–8 рангов и состоит из 15 вопросов по трём документам законодательной базы. В части вопросов правильных вариантов несколько — внимательно читайте формулировку.</p>
+  <div class="intro-grid">
+    <div class="mini"><b>4–8</b><span>ранги сотрудников</span></div><div class="mini"><b>15</b><span>вопросов в тесте</span></div>
+    <div class="mini"><b>12/15</b><span>учебный порог прохождения</span></div>
+    <div class="mini"><b>1–2</b><span>правильных ответа или более — смотрите указание к вопросу</span></div>
+  </div>
+  <div class="notice">Вопросы составлены по указанным документам на форуме. Для вопросов с несколькими ответами балл засчитывается только при выборе полного правильного набора без лишних вариантов. Порог 12 из 15 является учебным условием этого теста.</div>
+  <button class="primary" id="start">Начать тестирование →</button>
+</section>
+
+<section class="panel hidden" id="quiz" aria-live="polite">
+  <div class="topline"><span id="counter">Вопрос 1 из 15</span><span id="answered">Выберите ответ</span></div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <div class="qnum" id="qnum">Вопрос 01</div>
+  <h2 id="question"></h2>
+  <div class="type-note" id="typeNote"></div>
+  <div class="options" id="options"></div>
+  <div class="feedback" id="feedback"></div>
+  <div class="actions">
+    <button class="secondary" id="back">← Назад</button>
+    <button class="primary" id="next" disabled>Ответить и продолжить →</button>
+  </div>
+</section>
+
+<section class="panel hidden result" id="result" aria-live="polite">
+  <div class="kicker">Результат тестирования</div>
+  <div class="score" id="score">0/15</div>
+  <h2 id="resultTitle"></h2>
+  <p id="resultText"></p>
+</section>
+<footer>
+  Учебный материал составлен по законодательной базе, указанной для тестирования.
+  <br><a href="https://forum.gta5rp.com/threads/ugolovno-administrativnyi-kodeks-shtata-san-andreas.1458592/" target="_blank" rel="noopener">Уголовно-административный кодекс</a>
+  · <a href="https://forum.gta5rp.com/threads/eticheskii-kodeks-shtata-san-andreas.1458588/" target="_blank" rel="noopener">Этический кодекс</a>
+  · <a href="https://forum.gta5rp.com/threads/zakon-o-united-states-secret-service-usss.1457544/" target="_blank" rel="noopener">Закон о USSS</a>
+  <br>Неофициальный учебный инструмент • Не собирает и не отправляет ответы на сервер
+</footer>
+</div>
+<script>
+const questions = [
+ {q:"Какое деяние прямо предусмотрено статьёй 10.1 УАК?",a:["Тайное хищение чужого имущества","Открытое хищение чужого имущества","Ограничение конкуренции соглашением между конкурентами","Расходование бюджетных средств не на предусмотренные цели"],c:[0],m:false,e:"Статья 10.1 описывает кражу как тайное хищение чужого имущества. Открытое хищение отдельно указано в статье 10.2."},
+ {q:"Что статья 12.6 УАК относит к мелкому хулиганству?",a:["Нарушение общественного порядка","Оскорбление представителя власти при исполнении обязанностей","Воспрепятствование законной деятельности государственного служащего после требования не вмешиваться","Неповиновение законному требованию сотрудника правоохранительного органа"],c:[0],m:false,e:"В статье 12.6 мелкое хулиганство определено как нарушение общественного порядка."},
+ {q:"Какое нарушение описано в статье 13.4 УАК?",a:["Нахождение в неприемлемом виде в общественных местах согласно главе X закона о закрытых и охраняемых территориях","Воспрепятствование оказанию медицинской помощи","Отказ предоставить финансовую информацию уполномоченным лицам","Нарушение правил использования волны департамента"],c:[0],m:false,e:"Статья 13.4 относится к нахождению в неприемлемом виде в общественных местах; она отсылает к главе X закона о закрытых и охраняемых территориях."},
+ {q:"Какие формулировки верно различают превышение и злоупотребление должностными полномочиями по статьям 15.1 и 15.2 УАК?",a:["Статья 15.1 — действия должностного лица, явно выходящие за пределы полномочий и повлекшие существенное нарушение охраняемых прав или интересов","Статья 15.2 — использование полномочий вопреки интересам службы из корыстной или иной личной заинтересованности, повлекшее существенное нарушение охраняемых прав или интересов","Статья 15.1 — любое нарушение служебной дисциплины независимо от последствий","Статья 15.2 — любое действие за пределами полномочий, даже без личной заинтересованности"],c:[0,1],m:true,e:"Статья 15.1 связывает превышение с явным выходом за пределы полномочий и существенными последствиями. Статья 15.2 описывает использование полномочий вопреки интересам службы из личной заинтересованности, также повлекшее существенное нарушение."},
+ {q:"Какие пары «степень секретности — статья УАК» указаны верно?",a:["TS или S — разглашение лицу без соответствующего уровня доступа, статья 14.3 [У]","R — разглашение лицу без права доступа, статья 14.3.1 [А]","R — статья 14.3 [У]","TS или S — статья 14.3.1 [А]"],c:[0,1],m:true,e:"Статья 14.3 относится к разглашению сведений уровней TS или S и обозначена [У]. Статья 14.3.1 относится к сведениям уровня R и обозначена [А]."},
+ {q:"Какой признак важен для квалификации воспрепятствования законной деятельности государственного служащего по статье 17.3.2 УАК?",a:["После законного требования не вмешиваться лицо продолжает повторяющиеся действия или непосредственное вмешательство, реально затрудняющие исполнение обязанностей","Человек просто находится рядом с сотрудником, не предпринимая активных действий","После требования не вмешиваться человек прекращает взаимодействие","Происходит единичное кратковременное обращение, не затрудняющее работу"],c:[0],m:false,e:"Комментарий к статье 17.3.2 связывает состав с продолжением действий вопреки предварительному законному требованию и реальным затруднением исполнения служебных обязанностей. Само по себе нахождение рядом или единичное прекращённое взаимодействие состава не образует."},
+ {q:"На кого распространяется Этический кодекс штата Сан-Андреас?",a:["Только на руководителей государственных организаций","На представителей государственных структур независимо от должности, полномочий и ранга","Только на сотрудников, находящихся на рабочем месте","Только на членов правительства"],c:[1],m:false,e:"Статья 1.3 распространяет действие кодекса на всех представителей государственных структур вне зависимости от должности, полномочий и ранга."},
+ {q:"Какие принципы соответствуют Этическому кодексу?",a:["Действовать в интересах государства и общества","Быть честным перед работодателем и обществом","Относиться к людям с учётом их социального статуса","Работать точно, честно и профессионально"],c:[0,1,3],m:true,e:"Кодекс закрепляет общественный интерес, честность, равное отношение к людям и профессионализм. Предпочтение по социальному статусу противоречит принципу равенства."},
+ {q:"Сотрудник считает, что просьба гражданина не относится к его личным обязанностям. Какой принцип Этического кодекса наиболее прямо затрагивает такую ситуацию?",a:["Недопустимость безразличия к проблемам граждан и просьбам коллег о помощи","Право игнорировать обращения, не связанные с личной выгодой","Обязанность руководителя самостоятельно отвечать на все обращения","Приоритет личных интересов сотрудника"],c:[0],m:false,e:"Статья 2.7 прямо указывает, что безразличие к проблемам граждан и просьбам коллег о помощи недопустимо."},
+ {q:"Какие утверждения об обязанностях руководителя соответствуют Этическому кодексу?",a:["Не пользоваться властью самовольно и в ущерб жителям","Создавать условия для работы и развития подчинённых","Выслушивать инициативы работников и уделять им внимание","Вмешиваться в дела любой другой организации по личному усмотрению"],c:[0,1,2],m:true,e:"Этический кодекс закрепляет первые три обязанности. Самовольное вмешательство не соответствует установленным правилам."},
+ {q:"Какое условие прямо указано в статье 18.1 УАК для ответственности за неисполнение подчинённым приказа?",a:["Приказ отдан в установленном порядке, а его неисполнение причинило существенный вред интересам службы","Подчинённый не согласился с рекомендацией, которая не являлась приказом","Приказ был отдан с нарушением установленного порядка","Неисполнение не повлияло на интересы службы"],c:[0],m:false,e:"Статья 18.1 относится к неисполнению подчинённым приказа начальника или руководства, отданного в установленном порядке, если это причинило существенный вред интересам службы."},
+ {q:"Какие меры взыскания предусмотрены Этическим кодексом за нарушения, для которых не установлено немедленное увольнение?",a:["Предупреждение","Выговор","Штраф, предусмотренный соответствующей статьёй","Автоматическое лишение должности судом"],c:[0,1,2],m:true,e:"Статья 6.3 предусматривает предупреждения, выговоры и штрафы. Штрафы назначаются исключительно сотрудниками Офиса Генерального прокурора."},
+ {q:"Кому подчиняется USSS согласно предоставленному Закону о Секретной службе?",a:["Непосредственно Министру внутренней безопасности, а прямое руководство деятельностью осуществляет Директор USSS","Только Генеральному прокурору","Исключительно руководителю полиции","Непосредственно суду по всем вопросам службы"],c:[0],m:false,e:"Статья 1 закрепляет вхождение USSS в систему Министерства внутренней безопасности и подчинение Министру; непосредственное руководство осуществляет Директор."},
+ {q:"Какие направления входят в миссии USSS согласно Закону?",a:["Обеспечение безопасности охраняемых должностных лиц и объектов","Охрана национальной финансовой системы","Защита сведений, составляющих государственную тайну","Решение частных коммерческих споров между гражданами"],c:[0,1,2],m:true,e:"Закон относит к направлениям USSS защитную миссию, охрану финансовой системы, противодействие коррупции и защиту государственной тайны. Частные коммерческие споры к указанным миссиям не относятся."},
+ {q:"При каких условиях по предоставленному Закону может организовываться государственная охрана лиц с постоянным статусом неприкосновенности?",a:["Сотрудник USSS может самостоятельно назначить охрану по своему усмотрению","По личному запросу охраняемого лица либо по решению Министра внутренней безопасности, Генерального прокурора или Губернатора","Только после решения суда","Только по просьбе любого сотрудника правительства"],c:[1],m:false,e:"В примечании к статье 3 указано, что охрана таких лиц осуществляется по их личному запросу либо по решению одного из перечисленных высших должностных лиц; самостоятельная инициатива сотрудников USSS не допускается."}
+];
+
+let index=0;
+let answers=Array(questions.length).fill(null);
+const $=id=>document.getElementById(id);
+const ACCESS_PASSWORD="USSSACADEMY";
+function selectedValues(){return [...document.querySelectorAll('#options input:checked')].map(x=>Number(x.value));}
+function showQuestion(){
+ const item=questions[index];
+ $("counter").textContent=`Вопрос ${index+1} из ${questions.length}`;
+ $("answered").textContent=answers[index]===null?"Выберите ответ":"Ответ выбран";
+ $("bar").style.width=`${index/questions.length*100}%`;
+ $("qnum").textContent=`ВОПРОС ${String(index+1).padStart(2,"0")}`;
+ $("question").textContent=item.q;
+ $("typeNote").textContent=item.m?"Выберите все правильные варианты":"Выберите один правильный вариант";
+ $("options").innerHTML="";
+ $("feedback").className="feedback";$("feedback").textContent="";
+ item.a.forEach((answer,i)=>{
+  const label=document.createElement("label");
+  label.className="option"+(answers[index]!==null&&answers[index].includes(i)?" selected":"");
+  const input=document.createElement("input");
+  input.type=item.m?"checkbox":"radio";input.name="answer";input.value=i;
+  input.checked=answers[index]!==null&&answers[index].includes(i);
+  input.addEventListener("change",()=>{
+   answers[index]=item.m?selectedValues():[i];
+   showQuestion();
+  });
+  const span=document.createElement("span");span.textContent=answer;
+  label.append(input,span);$("options").append(label);
+ });
+ $("back").disabled=index===0;
+ $("next").disabled=answers[index]===null||answers[index].length===0;
+ $("next").textContent=index===questions.length-1?"Завершить тест →":"Ответить и продолжить →";
+}
+$("passwordForm").addEventListener("submit",event=>{
+ event.preventDefault();
+ if($("sitePassword").value===ACCESS_PASSWORD){
+  $("passwordGate").classList.add("hidden");$("welcome").classList.remove("hidden");$("passwordError").textContent="";
+ }else{$("passwordError").textContent="Неверный пароль. Проверьте ввод и попробуйте ещё раз.";$("sitePassword").value="";$("sitePassword").focus();}
+});
+$("start").addEventListener("click",()=>{$("welcome").classList.add("hidden");$("quiz").classList.remove("hidden");showQuestion();});
+$("back").addEventListener("click",()=>{if(index>0){index--;showQuestion();}});
+$("next").addEventListener("click",()=>{
+ if(answers[index]===null)return;
+ if(index<questions.length-1){index++;showQuestion();}else finish();
+});
+function finish(){
+ let score=0;
+ questions.forEach((q,i)=>{
+  const chosen=answers[i]||[];
+  const correct=chosen.length===q.c.length&&chosen.every(v=>q.c.includes(v))&&q.c.every(v=>chosen.includes(v));
+  if(correct)score++;
+ });
+ const percent=Math.round(score/questions.length*100);
+ $("quiz").classList.add("hidden");$("result").classList.remove("hidden");
+ $("score").textContent=`${percent}%`;
+ $("resultTitle").textContent=percent>=80?"Тест пройден":"Требуется повторение материала";
+ $("resultText").textContent=`Результат: ${percent}%. Правильные ответы не отображаются.`;
+}
+</script>
+</body>
+</html>
